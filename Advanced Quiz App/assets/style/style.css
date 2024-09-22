@@ -415,7 +415,7 @@ td {
 
 .content-section {
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 30px;
    
 }
 
@@ -429,11 +429,11 @@ td {
 
 
 label {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     color: #555;
     margin-top: 10px;
     display: block;
+    margin-bottom: 10px;
 }
 
 textarea, input[type="text"], select {
@@ -441,12 +441,13 @@ textarea, input[type="text"], select {
     padding: 10px;
     border-radius: 4px;
     font-size: 14px;
-    font-family: Arial, sans-serif;
+    background: #ffffff73;
+    margin-bottom: 15px;
 }
 
 #create_test button {
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: var(--clr-neutral-200);
     color: white;
     border: none;
     border-radius: 4px;
@@ -456,22 +457,25 @@ textarea, input[type="text"], select {
 }
 
 #create_test button:hover {
-    background-color: #0056b3;
+    background-color: var(--clr-neutral-300)
 }
 
 #create_test #multiple_choice_fields, #explanation_fields, #fill_in_blank_fields {
     margin-top: 20px;
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
     border-radius: 4px;
 }
 
+.mul option{
+    background-color: #ffffff73;
+}
+
 .question-item {
+    margin-top: 30px;
     margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 4px;
+    padding: 20px 30px;
+    background-color: #ffffff73;
+    border-radius: 15px;
     border: 1px solid #ddd;
 }
 
@@ -565,7 +569,6 @@ button:hover {
 
     .test-block {
         margin-bottom: 15px;
-        background-color: #f9f9f9;
         padding: 10px;
         border-radius: 5px;
     }
@@ -856,9 +859,9 @@ button:hover::after {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 400px; /* Adjust the width of the modal */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
-    position: relative; /* Required for positioning of close button */
+    width: 560px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    position: relative; 
 }
 
 #closeModal {
@@ -900,6 +903,42 @@ button:hover::after {
 
 #saveQuestionBtn:hover {
     background-color: #218838;
+}
+
+.update-btn {
+    margin: 20px 20px 0px 0px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 7px 20px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.update-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.update-btn:active {
+    background-color: #3e8e41; /* Even darker when clicked */
+    transform: scale(0.98); /* Slight shrink on click */
+}
+
+
+.delete-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
 }
 
 

@@ -89,21 +89,20 @@
 
             <!-- Test Section -->
             <section id="create_test" class="content-section test-sec mar-top">
-                <h2>Create a Test</h2>
+                <h2 class="heading-primary">Create a Test</h2>
 
                 <label for="question_type">Select Question Type:</label>
                 <select id="question_type" name="question_type" onchange="showFields()">
                     <option value="">Select a Question Type</option>
                     <option value="multiple_choice">Multiple Choice</option>
                     <option value="explanation">Explanation</option>
-                    <option value="fill_in_the_blank">Fill in the Blank</option>
                 </select>
 
                 <form id="testForm">
                     <label for="question">Question:</label>
                     <textarea id="question" name="question" rows="3" required></textarea>
 
-                    <div id="multiple_choice_fields" style="display: none;">
+                    <div id="multiple_choice_fields" class="mul" style="display: none;">
                         <label for="option1">Option 1:</label>
                         <input type="text" id="option1" name="option1">
 
@@ -137,10 +136,9 @@
             </section>
 
             <section id="test" class="content-section mar-top">
-                <h2>All Test</h2>
                 <div id="testContainer" class="test-container"></div>
             </section>
-
+            
             <!-- Edit Question Modal -->
             <div id="editQuestionModal" style="display: none;">
                 <div class="modal-content">

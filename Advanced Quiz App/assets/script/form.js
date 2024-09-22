@@ -66,16 +66,15 @@ export const initform = () => {
         testContainers.forEach((test, testIndex) => {
             let testElement = document.createElement("div");
             testElement.classList.add("test-block");
-            testElement.style.border = "1px solid #ddd";
             testElement.style.padding = "10px";
-            testElement.style.marginBottom = "10px";
+            testElement.style.marginBottom = "40px";
 
-            testElement.innerHTML = `<h3>Test ${testIndex + 1}</h3>`;
+            testElement.innerHTML = `<h3 class = "heading-primary">Test ${testIndex + 1}</h3>`;
 
             test.forEach((question, index) => {
                 let questionElement = document.createElement("div");
                 questionElement.classList.add("question-item");
-                questionElement.innerHTML = `<h4>Question ${index + 1}: ${question.text}</h4>`;
+                questionElement.innerHTML = `<h4 class = "heading-tertiary">Question ${index + 1}: ${question.text}</h4>`;
 
                 if (question.type === "multiple_choice") {
                     question.options.forEach((option, i) => {
@@ -85,10 +84,10 @@ export const initform = () => {
                 } else if (question.type === "explanation") {
                     questionElement.innerHTML += `<p>Explanation: ${question.explanation}</p>`;
                 }
-
                 // Add Update button
                 let updateBtn = document.createElement("button");
                 updateBtn.innerText = "Update";
+                updateBtn.classList.add("update-btn"); 
                 updateBtn.onclick = function () {
                     updateQuestion(testIndex, index);
                 };
@@ -97,6 +96,7 @@ export const initform = () => {
                 // Add Delete button
                 let deleteBtn = document.createElement("button");
                 deleteBtn.innerText = "Delete";
+                deleteBtn.classList.add("delete-btn"); 
                 deleteBtn.onclick = function () {
                     deleteQuestion(testIndex, index);
                 };
