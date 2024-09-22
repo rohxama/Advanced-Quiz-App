@@ -836,6 +836,74 @@ button:hover::after {
     display: none;
 }
 
+#editQuestionModal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+   
+    max-width: 500px; /* This controls the maximum width */
+    
+    padding: 20px;
+    
+    border-radius: 8px; /* Optional: Rounds the corners of the modal */
+}
+
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px; /* Adjust the width of the modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    position: relative; /* Required for positioning of close button */
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#editForm label {
+    margin-top: 10px;
+}
+
+#editForm textarea,
+#editForm input,
+#editForm select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#saveQuestionBtn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveQuestionBtn:hover {
+    background-color: #218838;
+}
+
+
+
 
 @media (max-width: 550px) {
     .table-container {

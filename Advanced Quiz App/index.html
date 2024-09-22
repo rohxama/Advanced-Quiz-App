@@ -30,15 +30,15 @@
                                     <i class="ri-layout-2-line"></i> All Test
                                 </a>
                                 <ul class="sub-menu hidden">
-                                    <li><a class="nav-link"  href="#"  data-section="create_test">Create Test</a></li>
-                                   
+                                    <li><a class="nav-link" href="#" data-section="create_test">Create Test</a></li>
+
                                 </ul>
                             </li>
                             <li>
                                 <a href="#" class="nav-link" data-section="Leaderboard">
                                     <i class="ri-team-line"></i>Leaderboard</a>
                             </li>
-                           
+
                         </ul>
                     </div>
                     <div class="nav_bar">
@@ -73,8 +73,8 @@
                     <div class="search-bar flex">
                         <input class="search-input" type="text" name="searchQueryInput" placeholder="Search Here..." />
                         <button class="submit-btn" type="submit" name="searchQuerySubmit">
-                                <i class="ri-search-line"></i>
-                            </button>
+                            <i class="ri-search-line"></i>
+                        </button>
                     </div>
 
                     <div class="top-header-icons ">
@@ -90,7 +90,7 @@
             <!-- Test Section -->
             <section id="create_test" class="content-section test-sec mar-top">
                 <h2>Create a Test</h2>
-            
+
                 <label for="question_type">Select Question Type:</label>
                 <select id="question_type" name="question_type" onchange="showFields()">
                     <option value="">Select a Question Type</option>
@@ -98,25 +98,24 @@
                     <option value="explanation">Explanation</option>
                     <option value="fill_in_the_blank">Fill in the Blank</option>
                 </select>
-            
+
                 <form id="testForm">
                     <label for="question">Question:</label>
                     <textarea id="question" name="question" rows="3" required></textarea>
-            
-                    <!-- Multiple Choice Fields -->
+
                     <div id="multiple_choice_fields" style="display: none;">
                         <label for="option1">Option 1:</label>
                         <input type="text" id="option1" name="option1">
-            
+
                         <label for="option2">Option 2:</label>
                         <input type="text" id="option2" name="option2">
-            
+
                         <label for="option3">Option 3:</label>
                         <input type="text" id="option3" name="option3">
-            
+
                         <label for="option4">Option 4:</label>
                         <input type="text" id="option4" name="option4">
-            
+
                         <label for="correct_answer_mc">Correct Answer:</label>
                         <select id="correct_answer_mc" name="correct_answer_mc">
                             <option value="">Select Correct Answer</option>
@@ -126,36 +125,70 @@
                             <option value="option4">Option 4</option>
                         </select>
                     </div>
-            
-                    <!-- Explanation Fields -->
                     <div id="explanation_fields" style="display: none;">
                         <label for="explanation">Explanation:</label>
                         <textarea id="explanation" name="explanation" rows="3"></textarea>
                     </div>
-            
-                    <!-- Fill in the Blank Fields -->
-                    <div id="fill_in_blank_fields" style="display: none;">
-                        <label for="fill_in_the_blank">Fill in the Blank:</label>
-                        <input type="text" id="fill_in_the_blank" name="fill_in_the_blank">
-            
-                        <label for="correct_answer_fb">Correct Answer:</label>
-                        <input type="text" id="correct_answer_fb" name="correct_answer_fb">
-                    </div>
-            
-                    <button id="addQuestionBtn" type="button">Add Question</button>
+
+
+                    <button id="addQuestionBtn">Add Question</button>
+
                 </form>
-            
-                <div id="testContainer"></div> <!-- This will display the added questions -->
             </section>
-            
 
-        <section id="test" class="content-section mar-top">
-            <h2>All Test</h2>
-            <div id="testContainer" class="test-container"></div>
-        </section>
+            <section id="test" class="content-section mar-top">
+                <h2>All Test</h2>
+                <div id="testContainer" class="test-container"></div>
+            </section>
 
-      
-   
+            <!-- Edit Question Modal -->
+            <div id="editQuestionModal" style="display: none;">
+                <div class="modal-content">
+                    <span id="closeModal">&times;</span>
+                    <form id="editForm">
+                        <label for="edit_question">Question:</label>
+                        <textarea id="edit_question" name="edit_question" rows="3" required></textarea>
+
+                        <div id="edit_multiple_choice_fields" style="display: none;">
+                            <label for="edit_option1">Option 1:</label>
+                            <input type="text" id="edit_option1" name="edit_option1">
+
+                            <label for="edit_option2">Option 2:</label>
+                            <input type="text" id="edit_option2" name="edit_option2">
+
+                            <label for="edit_option3">Option 3:</label>
+                            <input type="text" id="edit_option3" name="edit_option3">
+
+                            <label for="edit_option4">Option 4:</label>
+                            <input type="text" id="edit_option4" name="edit_option4">
+
+                            <label for="edit_correct_answer_mc">Correct Answer:</label>
+                            <select id="edit_correct_answer_mc" name="edit_correct_answer_mc">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option4">Option 4</option>
+                            </select>
+                        </div>
+
+                        <div id="edit_explanation_fields" style="display: none;">
+                            <label for="edit_explanation">Explanation:</label>
+                            <textarea id="edit_explanation" name="edit_explanation" rows="3"></textarea>
+                        </div>
+
+                        <div id="edit_fill_in_blank_fields" style="display: none;">
+                            <label for="edit_fill_in_blank">Fill in the Blank:</label>
+                            <input type="text" id="edit_fill_in_blank" name="edit_fill_in_blank">
+                        </div>
+
+                        <button type="button" id="saveQuestionBtn">Save Question</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
             <!-- Leaderboard -->
             <section id="Leaderboard" class="content-section mar-top">
                 <div class="upper-heading">
@@ -224,15 +257,15 @@
             <!-- Log Out -->
             <section id="logout" class="content-section mar-top">
                 <div class="upper-heading">
-                <p class="heading-secondary text-neutral-300">Log out
-                </p>
+                    <p class="heading-secondary text-neutral-300">Log out
+                    </p>
                 </div>
                 <div class="form-container">
                     <h1>Logout</h1>
                     <p>Are you sure you want to log out?</p>
                     <button class="btn">Logout</button>
                 </div>
-        </section>
+            </section>
 
         </main>
 
@@ -241,15 +274,15 @@
 
     <script>
         document.querySelector('.test-toggle').addEventListener('click', function (e) {
-    e.preventDefault(); 
-    const submenu = this.nextElementSibling; 
-    
-    if (submenu.classList.contains('hidden')) {
-        submenu.classList.remove('hidden');
-    } else {
-        submenu.classList.add('hidden');
-    }
-});
+            e.preventDefault();
+            const submenu = this.nextElementSibling;
+
+            if (submenu.classList.contains('hidden')) {
+                submenu.classList.remove('hidden');
+            } else {
+                submenu.classList.add('hidden');
+            }
+        });
 
     </script>
 
