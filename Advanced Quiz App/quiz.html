@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
 
-    <link rel="stylesheet" href="./style/style.css">
+    <!-- <link rel="stylesheet" href="./assets/style/style.css"> -->
 
     <style>
+        :root {
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --clr-neutral-500: #1c232b;
+    --clr-neutral-400: #28323E;
+    --clr-neutral-300: #384656;
+    --clr-neutral-200: #51657B;
+    --clr-neutral-100: #E6EAEF;
+}
         
 .btn {
     display: inline-flex;
@@ -15,7 +23,7 @@
     justify-content: center;
     border: 1px solid var(--clr-neutral-300);
     border-radius: 5px;
-    padding: 0.6em 1.4em;
+    padding: 1em 1.4em;
     background-color: transparent;
     color: var(--clr-neutral-100);
     font-weight: var(--font-weight-6);
@@ -23,6 +31,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .btn:is(:hover, :focus-visible) {
@@ -32,7 +41,7 @@
 .button {
     position: relative;
     margin: 0;
-    padding: 0.6em 1.4em;
+    padding: 1em 1.4em;
     outline: none;
     text-decoration: none;
     display: flex;
@@ -48,6 +57,7 @@
     z-index: 0;
     overflow: hidden;
     letter-spacing: 0.05em;
+    font-size: 16px;
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
@@ -201,7 +211,7 @@ button:hover::after {
         </div>
     </form>
 
-    <script src="./script/quiz.js"></script>
+    <script src="./assets/script/quiz.js"></script>
     
 </body>
 </html>

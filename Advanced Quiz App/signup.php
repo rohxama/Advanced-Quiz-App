@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="style/style.css">
+    <!-- <link rel="stylesheet" href="style/style.css"> -->
 
     <style>
         *,
@@ -142,7 +142,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "quiz_dashboard";
+    $dbname = "quiz-test";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -180,10 +180,15 @@
 
             // Execute the query
             if ($stmt->execute()) {
-                echo "Sign up successful!";
+                // echo "Sign up successful!";
             } else {
                 echo "Error: " . $stmt->error;
             }
+
+            if (!$stmt->execute()) {
+                echo "Error executing statement: " . $stmt->error;
+            }
+            
 
             // Close the statement
             $stmt->close();
@@ -194,9 +199,12 @@
 
     // Close the connection
     $conn->close();
+
+
+
+
+
     ?>
-
-
 
 
 

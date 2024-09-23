@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <!-- <link rel="stylesheet" href="./style/style.css"> -->
 
     <style>
         *,
@@ -143,7 +143,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "quiz_dashboard";
+    $dbname = "quiz-test";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -175,7 +175,7 @@
                 $_SESSION['user_email'] = $email;
 
                 // Redirect to index.html
-                header("Location: ./quiz.php");
+                header("Location: ./quiz.html");
                 exit();
             } else {
                 echo "Incorrect password!";
@@ -190,7 +190,9 @@
 
 
 
-    <script src="./script/script.js"></script>
+<script src="./assets/script/quiz.js"></script>
+
+
 </body>
 
 </html>

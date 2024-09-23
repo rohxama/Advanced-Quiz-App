@@ -69,25 +69,41 @@ export const initform = () => {
             testElement.style.padding = "10px";
             testElement.style.marginBottom = "40px";
 
-            testElement.innerHTML = `<h3 class = "heading-primary">Test ${testIndex + 1}</h3>`;
+            // Using string template and createElement for proper HTML rendering
+            let heading = document.createElement("h3");
+            heading.classList.add("heading-primary");
+            heading.textContent = `Test ${testIndex + 1}`;
+            testElement.appendChild(heading);
 
             test.forEach((question, index) => {
                 let questionElement = document.createElement("div");
                 questionElement.classList.add("question-item");
-                questionElement.innerHTML = `<h4 class = "heading-tertiary">Question ${index + 1}: ${question.text}</h4>`;
+
+                // Create question title
+                let questionTitle = document.createElement("h4");
+                questionTitle.classList.add("heading-tertiary");
+                questionTitle.textContent = `Question ${index + 1}: ${question.text}`;
+                questionElement.appendChild(questionTitle);
 
                 if (question.type === "multiple_choice") {
                     question.options.forEach((option, i) => {
-                        questionElement.innerHTML += `<p>Option ${i + 1}: ${option}</p>`;
+                        let optionElement = document.createElement("p");
+                        optionElement.textContent = `Option ${i + 1}: ${option}`;
+                        questionElement.appendChild(optionElement);
                     });
-                    questionElement.innerHTML += `<p>Correct Answer: ${question.correctAnswer}</p>`;
+                    let correctAnswerElement = document.createElement("p");
+                    correctAnswerElement.textContent = `Correct Answer: ${question.correctAnswer}`;
+                    questionElement.appendChild(correctAnswerElement);
                 } else if (question.type === "explanation") {
-                    questionElement.innerHTML += `<p>Explanation: ${question.explanation}</p>`;
+                    let explanationElement = document.createElement("p");
+                    explanationElement.textContent = `Explanation: ${question.explanation}`;
+                    questionElement.appendChild(explanationElement);
                 }
+
                 // Add Update button
                 let updateBtn = document.createElement("button");
                 updateBtn.innerText = "Update";
-                updateBtn.classList.add("update-btn"); 
+                updateBtn.classList.add("update-btn");
                 updateBtn.onclick = function () {
                     updateQuestion(testIndex, index);
                 };
@@ -96,7 +112,7 @@ export const initform = () => {
                 // Add Delete button
                 let deleteBtn = document.createElement("button");
                 deleteBtn.innerText = "Delete";
-                deleteBtn.classList.add("delete-btn"); 
+                deleteBtn.classList.add("delete-btn");
                 deleteBtn.onclick = function () {
                     deleteQuestion(testIndex, index);
                 };
