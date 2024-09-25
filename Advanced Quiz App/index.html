@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- REemix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Css File -->
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Side bar -->
+
+        <nav class="bg-neutral-300">
+            <div class="nav_wrapper">
+                <a href="#" class="logo flex">
+                    <i class="ri-question-answer-line text-neutral-100"></i>
+                    <h2 class="logo text-neutral-100">MCQZONE</h2>
+                </a>
+                <div class="navbar">
+                    <div class="nav_bar">
+                        <p class="short-para">General</p>
+                        <ul class="nav_item">
+                            <li>
+                                <a href="#" class="nav-link test-toggle" data-section="test">
+                                    <i class="ri-layout-2-line"></i> All Test
+                                </a>
+                                <ul class="sub-menu hidden">
+                                    <li><a class="nav-link" href="#" data-section="create_test">Create Test</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link" data-section="Leaderboard">
+                                    <i class="ri-team-line"></i>Leaderboard</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="nav_bar">
+                        <p class="short-para">Account</p>
+                        <ul class="nav_item">
+                            <li>
+                                <a href="#" class="nav-link" data-section="logout">
+                                    <i class="ri-logout-box-r-line"></i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copy_para">© 2024 Mcqzone. <br> All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main -->
+        <main class="bg-neutral-100">
+
+            <!-- Header -->
+            <div class="header">
+
+                <div class="top-navbar">
+                    <button class="nav-toggle-btn">
+                        <i class="ri-menu-line"></i>
+                    </button>
+
+                    <div class="heading-primary text-neutral-300 dashboard"></i>Dashboard
+                    </div>
+
+                    <div class="search-bar flex">
+                        <input class="search-input" type="text" name="searchQueryInput" placeholder="Search Here..." />
+                        <button class="submit-btn" type="submit" name="searchQuerySubmit">
+                            <i class="ri-search-line"></i>
+                        </button>
+                    </div>
+
+                    <div class="top-header-icons ">
+                        <div class="profile flex">
+                            <p class="para text-neutral-500">John Doe</p>
+                            <i class="ri-user-fill user"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Test Section -->
+            <section id="create_test" class="content-section test-sec mar-top">
+                <h2 class="heading-primary">Create a Test</h2>
+
+                <label for="question_type">Select Question Type:</label>
+                <select id="question_type" name="question_type" onchange="showFields()">
+                    <option value="">Select a Question Type</option>
+                    <option value="multiple_choice">Multiple Choice</option>
+                    <option value="explanation">Explanation</option>
+                </select>
+
+                <form id="testForm">
+                    <label for="question">Question:</label>
+                    <textarea id="question" name="question" rows="3" required></textarea>
+
+                    <div id="multiple_choice_fields" class="mul" style="display: none;">
+                        <label for="option1">Option 1:</label>
+                        <input type="text" id="option1" name="option1">
+
+                        <label for="option2">Option 2:</label>
+                        <input type="text" id="option2" name="option2">
+
+                        <label for="option3">Option 3:</label>
+                        <input type="text" id="option3" name="option3">
+
+                        <label for="option4">Option 4:</label>
+                        <input type="text" id="option4" name="option4">
+
+                        <label for="correct_answer_mc">Correct Answer:</label>
+                        <select id="correct_answer_mc" name="correct_answer_mc">
+                            <option value="">Select Correct Answer</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                            <option value="option4">Option 4</option>
+                        </select>
+                    </div>
+                    <div id="explanation_fields" style="display: none;">
+                        <label for="explanation">Explanation:</label>
+                        <textarea id="explanation" name="explanation" rows="3"></textarea>
+                    </div>
+
+
+                    <button id="addQuestionBtn">Add Question</button>
+
+                </form>
+            </section>
+
+            <section id="test" class="content-section mar-top">
+                <div id="testContainer" class="test-container"></div>
+            </section>
+            
+            <!-- Edit Question Modal -->
+            <div id="editQuestionModal" style="display: none;">
+                <div class="modal-content">
+                    <span id="closeModal">&times;</span>
+                    <form id="editForm">
+                        <label for="edit_question">Question:</label>
+                        <textarea id="edit_question" name="edit_question" rows="3" required></textarea>
+
+                        <div id="edit_multiple_choice_fields" style="display: none;">
+                            <label for="edit_option1">Option 1:</label>
+                            <input type="text" id="edit_option1" name="edit_option1">
+
+                            <label for="edit_option2">Option 2:</label>
+                            <input type="text" id="edit_option2" name="edit_option2">
+
+                            <label for="edit_option3">Option 3:</label>
+                            <input type="text" id="edit_option3" name="edit_option3">
+
+                            <label for="edit_option4">Option 4:</label>
+                            <input type="text" id="edit_option4" name="edit_option4">
+
+                            <label for="edit_correct_answer_mc">Correct Answer:</label>
+                            <select id="edit_correct_answer_mc" name="edit_correct_answer_mc">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option4">Option 4</option>
+                            </select>
+                        </div>
+
+                        <div id="edit_explanation_fields" style="display: none;">
+                            <label for="edit_explanation">Explanation:</label>
+                            <textarea id="edit_explanation" name="edit_explanation" rows="3"></textarea>
+                        </div>
+
+                        <div id="edit_fill_in_blank_fields" style="display: none;">
+                            <label for="edit_fill_in_blank">Fill in the Blank:</label>
+                            <input type="text" id="edit_fill_in_blank" name="edit_fill_in_blank">
+                        </div>
+
+                        <button type="button" id="saveQuestionBtn">Save Question</button>
+                    </form>
+                </div>
+            </div>             
+
+
+
+
+            <!-- Leaderboard -->
+            <section id="Leaderboard" class="content-section mar-top">
+                <div class="upper-heading">
+                    <p class="heading-secondary text-neutral-300">Leader Board
+                    </p>
+                    <div class="Leaderboard-profile flex">
+                        <div class="user"><i class="ri-user-fill user"></i></div>
+                        <div class="user"><i class="ri-user-fill user"></i></div>
+                        <div class="user"><i class="ri-user-fill user"></i></div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user profile-icon"><i class="ri-user-fill user"></i></div>
+                                </td>
+                                <td>John Doe</td>
+                                <td>2024-09-08</td>
+                                <td>12:34 PM</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user profile-icon"><i class="ri-user-fill user"></i></div>
+                                </td>
+                                <td>John Doe</td>
+                                <td>2024-09-08</td>
+                                <td>12:34 PM</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user profile-icon"><i class="ri-user-fill user"></i></div>
+                                </td>
+                                <td>John Doe</td>
+                                <td>2024-09-08</td>
+                                <td>12:34 PM</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user profile-icon"><i class="ri-user-fill user"></i></div>
+                                </td>
+                                <td>John Doe</td>
+                                <td>2024-09-08</td>
+                                <td>12:34 PM</td>
+                                <td>85</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- Log Out -->
+            <section id="logout" class="content-section mar-top">
+                <div class="upper-heading">
+                    <p class="heading-secondary text-neutral-300">Log out
+                    </p>
+                </div>
+                <div class="form-container">
+                    <h1>Logout</h1>
+                    <p>Are you sure you want to log out?</p>
+                    <button class="btn">Logout</button>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script>
+        document.querySelector('.test-toggle').addEventListener('click', function (e) {
+            e.preventDefault();
+            const submenu = this.nextElementSibling;
+
+            if (submenu.classList.contains('hidden')) {
+                submenu.classList.remove('hidden');
+            } else {
+                submenu.classList.add('hidden');
+            }
+        });
+
+    </script>
+
+    <!-- Gsap File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js "></script>
+    <!-- Js File -->
+    <script type="module" src="./assets/script/script.js "></script>
+</body>
+
+</html>
