@@ -127,7 +127,6 @@
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" class = "btn">Login</button>
             </form>
-
             <p>Don't have an account?
                 <a href="./signup.php">Sign Up</a>
             </p>
@@ -160,6 +159,7 @@
         echo "Email: " . $email . "<br>";
         echo "Password: " . $password . "<br>";
 
+
         // Check if the user exists
         $sql = "SELECT * FROM user_data WHERE user_email = ?";
         $stmt = $conn->prepare($sql);
@@ -170,12 +170,14 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
 
+
             // Verify the password
             if (password_verify($password, $row['user_password'])) {
                 $_SESSION['user_email'] = $email;
 
-                // Redirect to index.html
-                header("Location: ./quiz.php");
+
+                
+                header("Location: quiz.php");
                 exit();
             } else {
                 echo "Incorrect password!";
