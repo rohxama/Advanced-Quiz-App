@@ -11,6 +11,20 @@
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
     <!-- Css File -->
     <link rel="stylesheet" href="./assets/style/style.css">
+    <style>
+          .home-section p{
+    color: var(--clr-neutral-100);
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #c0c0c022);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.25em;
+    text-align: center;
+    font-weight: 500;
+  }
+    </style>
 </head>
 
 <body class="home-body">
@@ -26,7 +40,6 @@
 
    
     <div class="home-section">
-
         <h1>
             Get ready to fight
         </h1>

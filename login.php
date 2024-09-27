@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
 
     <style>
         *,
@@ -136,63 +136,58 @@
 
 
     <?php
-    session_start();
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-    // Database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "quiz_dashboard";
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "quiz-test";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if the user exists
+    $sql = "SELECT * FROM user_data WHERE user_email = ?";
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Error preparing statement: " . $conn->error);
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo "Form submitted.<br>";
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
 
-        echo "Email: " . $email . "<br>";
-        echo "Password: " . $password . "<br>";
-
-
-        // Check if the user exists
-        $sql = "SELECT * FROM user_data WHERE user_email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-
-
-            // Verify the password
-            if (password_verify($password, $row['user_password'])) {
-                $_SESSION['user_email'] = $email;
-
-
-                
-                header("Location: quiz.php");
-                exit();
-            } else {
-                echo "Incorrect password!";
-            }
+        // Verify the password
+        if (password_verify($password, $row['user_password'])) {
+            $_SESSION['user_email'] = $email;
+            header("Location: quiz.php");
+            exit();
         } else {
-            echo "No account found with that email!";
+            echo "Incorrect password!";
         }
-        $stmt->close();
+    } else {
+        echo "No account found with that email!";
     }
-    $conn->close();
-    ?>
+    $stmt->close();
+}
+$conn->close();
+?>
 
 
-
-    <script src="./script/script.js"></script>
 </body>
 
 </html>

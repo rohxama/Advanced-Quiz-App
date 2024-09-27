@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
 
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
 
     <style>
+        :root {
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --clr-neutral-500: #1c232b;
+    --clr-neutral-400: #28323E;
+    --clr-neutral-300: #384656;
+    --clr-neutral-200: #51657B;
+    --clr-neutral-100: #E6EAEF;
+    --black: #000;
+}
         
 .btn {
     display: inline-flex;
@@ -168,6 +177,17 @@ button:hover::after {
         line-height: 1.5;
     
 }
+.quiz__code-input{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#userCode{
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    outline: none;
+}
 
 @media (min-width: 30em) {
     .quiz__info {
@@ -190,18 +210,19 @@ button:hover::after {
 <body class="quiz-body">
     <button class="button" id="quiz-start-btn">Start</button>
     <form class="quiz hide" id="quiz-form">
-        <div id="quiz-container">
+    <div id="quiz-container">
+    </div>
+    <div class="quiz__info">
+        <p class="quiz__time" id="quiz-timer">00:00</p>
+        <div class="button-group">
+            <button class="quiz__reset btn" id="quiz-restart-btn" data-type="warning" type="button">Restart</button>
+            <button id="quiz-next-btn" class="quiz__next btn" data-type="primary" type="submit">Next</button>
         </div>
-        <div class="quiz__info">
-            <p class="quiz__time" id="quiz-timer">00:00</p>
-            <div class="button-group">
-                <button class="quiz__reset btn" id="quiz-restart-btn" data-type="warning" type="button">Restart</button>
-                <button id="quiz-next-btn" class="quiz__next btn" data-type="primary" type="submit">Next</button>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
 
-    <script src="./script/quiz.js"></script>
+
+    <script src="./assets/script/quiz.js"></script>
     
 </body>
 </html>

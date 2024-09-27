@@ -1,110 +1,203 @@
-const quizData = [{
-    question: "In JavaScript, what value is returned by default when a function doesn't have a return statement?",
-    answers: [
-        { id: 1, label: "0", correct: false },
-        { id: 2, label: "null", correct: false },
-        { id: 3, label: "undefined", correct: true },
-        { id: 4, label: "-1", correct: false }
-    ]
-},
-{
-    question: "What is the output of `typeof null` in JavaScript?",
-    answers: [
-        { id: 1, label: "object", correct: true },
-        { id: 2, label: "null", correct: false },
-        { id: 3, label: "undefined", correct: false },
-        { id: 4, label: "number", correct: false }
-    ]
-},
-{
-    question: "How do you declare a variable in JavaScript?",
-    answers: [
-        { id: 1, label: "var variableName;", correct: true },
-        { id: 2, label: "variableName = var;", correct: false },
-        { id: 3, label: "declare variableName;", correct: false },
-        { id: 4, label: "let variable Name", correct: false }
-    ]
-},
-{
-    question: "Which of the following is NOT a JavaScript data type?",
-    answers: [
-        { id: 1, label: "String", correct: false },
-        { id: 2, label: "Boolean", correct: false },
-        { id: 3, label: "Integer", correct: true },
-        { id: 4, label: "Number", correct: false }
-    ]
-},
-{
-    question: "How can you create a function in JavaScript?",
-    answers: [
-        { id: 1, label: "function myFunction() {}", correct: true },
-        { id: 2, label: "create function myFunction() {}", correct: false },
-        { id: 3, label: "function: myFunction() {}", correct: false },
-        { id: 4, label: "def myFunction() {}", correct: false }
-    ]
-},
-{
-    question: "Which HTML attribute is used to define inline CSS styles?",
-    answers: [
-        { id: 1, label: "id", correct: false },
-        { id: 2, label: "class", correct: false },
-        { id: 3, label: "style", correct: true },
-        { id: 4, label: "css", correct: false }
-    ]
-},
-{
-    question: "What does DOM stand for in web development?",
-    answers: [
-        { id: 1, label: "Dynamic Object Model", correct: false },
-        { id: 2, label: "Data Object Model", correct: false },
-        { id: 3, label: "Document Oriented Model", correct: false },
-        { id: 4, label: "Document Object Model ", correct: true }
-    ]
-},
-{
-    question: "How do you select an elements with the ID using JavaScript?",
-    answers: [
-        { id: 1, label: "document.getElementById()", correct: true },
-        { id: 2, label: "document.querySelector()", correct: false },
-        { id: 3, label: "document.getElementByClass()", correct: false },
-        { id: 4, label: "document.selectElementById()", correct: false }
-    ]
-},
-{
-    question: "Which method is used to add an element to the end of an array in JavaScript?",
-    answers: [
-        { id: 1, label: "push()", correct: true },
-        { id: 2, label: "pop()", correct: false },
-        { id: 3, label: "shift()", correct: false },
-        { id: 4, label: "unshift()", correct: false }
-    ]
-}, {
-    question: "How to write an IF statement in JavaScript?",
-    answers: [
-        { id: 1, label: "if i = 5", correct: false },
-        { id: 2, label: "if (i == 5)", correct: true },
-        { id: 3, label: "if i == 5 then", correct: false }
-    ]
-},
-{
-    question: "Which event occurs when the user clicks on an HTML element?",
-    answers: [
-        { id: 1, label: "onmouseover", correct: false },
-        { id: 2, label: "onclick", correct: true },
-        { id: 3, label: "onchange", correct: false },
-        { id: 4, label: "onmouseclick", correct: false }
-    ]
-},
-{
-    question: "What does SCSS stand for?",
-    answers: [
-        { id: 1, label: "Sassy CSS", correct: true },
-        { id: 2, label: "Super-powered CSS", correct: false },
-        { id: 3, label: "Sass CSS", correct: false },
-        { id: 4, label: "Syntactic CSS", correct: false }
-    ]
-}
+const quizData = [
+    // HTML Questions
+    {
+        question: "Which HTML tag is used to define an unordered list?",
+        answers: [
+            { id: 1, label: "<ol>", correct: false },
+            { id: 2, label: "<ul>", correct: true },
+            { id: 3, label: "<list>", correct: false },
+            { id: 4, label: "<li>", correct: false }
+        ]
+    },
+    {
+        question: "How to create a new array in JavaScript?",
+        correctCode: "let myArray = [];", // Correct answer
+        explanation: "Use brackets to define an array."
+    },
+    {
+        question: "What is the correct HTML element for inserting a line break?",
+        answers: [
+            { id: 1, label: "<break>", correct: false },
+            { id: 2, label: "<br>", correct: true },
+            { id: 3, label: "<lb>", correct: false },
+            { id: 4, label: "<newline>", correct: false }
+        ]
+    },
+    {
+        question: "Which attribute is used to specify the URL of an image in HTML?",
+        answers: [
+            { id: 1, label: "src", correct: true },
+            { id: 2, label: "href", correct: false },
+            { id: 3, label: "link", correct: false },
+            { id: 4, label: "url", correct: false }
+        ]
+    },
+    {
+        question: "Convert a string to uppercase in JavaScript. Write your code below:",
+        correctCode: "myString.toUpperCase();",
+        explanation: "Use the toUpperCase method to convert a string to uppercase."
+    },
+    {
+        question: "Which HTML tag is used to define an external stylesheet?",
+        answers: [
+            { id: 1, label: "<css>", correct: false },
+            { id: 2, label: "<link>", correct: true },
+            { id: 3, label: "<style>", correct: false },
+            { id: 4, label: "<script>", correct: false }
+        ]
+    },
+    {
+        question: "What does the meta tag in HTML do?",
+        answers: [
+            { id: 1, label: "Defines metadata for the document", correct: true },
+            { id: 2, label: "Creates a heading", correct: false },
+            { id: 3, label: "Inserts images", correct: false },
+            { id: 4, label: "Links to other pages", correct: false }
+        ]
+    },
+    // CSS Questions
+    {
+        question: "Which CSS property controls the text size?",
+        answers: [
+            { id: 1, label: "font-size", correct: true },
+            { id: 2, label: "text-size", correct: false },
+            { id: 3, label: "font-style", correct: false },
+            { id: 4, label: "text-style", correct: false }
+        ]
+    },
+    {
+        question: "How to reverse an array in JavaScript without using reverse method?",
+        correctCode: "myArray.reverse();",
+        explanation: "Use the reverse method to reverse the order of elements in an array."
+    },
+    {
+        question: "Which CSS property is used to change the font family of an element?",
+        answers: [
+            { id: 1, label: "font-family", correct: true },
+            { id: 2, label: "font-weight", correct: false },
+            { id: 3, label: "text-font", correct: false },
+            { id: 4, label: "font-style", correct: false }
+        ]
+    },
+    {
+        question: "How do you select an element with the id 'header' in CSS?",
+        answers: [
+            { id: 1, label: "#header", correct: true },
+            { id: 2, label: ".header", correct: false },
+            { id: 3, label: "header", correct: false },
+            { id: 4, label: "*header", correct: false }
+        ]
+    },
+    {
+        question: "What does the CSS property 'margin' do?",
+        answers: [
+            { id: 1, label: "Sets the space outside an element", correct: true },
+            { id: 2, label: "Sets the space inside an element", correct: false },
+            { id: 3, label: "Changes the border style", correct: false },
+            { id: 4, label: "Changes the element's position", correct: false }
+        ]
+    },
+    // JavaScript Questions
+    {
+        question: "Which of the following is a correct way to define a function in JavaScript?",
+        answers: [
+            { id: 1, label: "function myFunction() {}", correct: true },
+            { id: 2, label: "def myFunction() {}", correct: false },
+            { id: 3, label: "function: myFunction() {}", correct: false },
+            { id: 4, label: "create function myFunction() {}", correct: false }
+        ]
+    },
+    {
+        question: "How to check if a variable is an array? Write your code below:",
+        correctCode: "Array.isArray(myVariable);",
+        explanation: "Use Array.isArray() to check if a variable is an array."
+    },
+    {
+        question: "NAN == NAN",
+        answers: [
+            { id: 1, label: "false", correct: true },
+            { id: 2, label: "NAN", correct: false },
+            { id: 3, label: "0", correct: false },
+            { id: 4, label: "true", correct: false }
+        ]
+    },
+    {
+        question: "What will `console.log(typeof NaN)` return?",
+        answers: [
+            { id: 1, label: "number", correct: true },
+            { id: 2, label: "undefined", correct: false },
+            { id: 3, label: "NaN", correct: false },
+            { id: 4, label: "string", correct: false }
+        ]
+    },
+    {
+        question: "How to iterate through an array in JavaScript?",
+        correctCode: "myArray.forEach(item => console.log(item));",
+        explanation: "Use forEach to iterate through each item in the array."
+    },
+    {
+        question: "Which method is used to add an element to the end of an array in JavaScript?",
+        answers: [
+            { id: 1, label: "push()", correct: true },
+            { id: 2, label: "pop()", correct: false },
+            { id: 3, label: "shift()", correct: false },
+            { id: 4, label: "unshift()", correct: false }
+        ]
+    },
+    {
+        question: "What does '=== ' mean in JavaScript?",
+        answers: [
+            { id: 1, label: "Strict equality", correct: true },
+            { id: 2, label: "Loose equality", correct: false },
+            { id: 3, label: "Assignment", correct: false },
+            { id: 4, label: "Not equal", correct: false }
+        ]
+    },
+    {
+        question: "console.log(true === 1)",
+        answers: [
+            { id: 1, label: "false", correct: true },
+            { id: 2, label: "true", correct: false },
+            { id: 3, label: "NaN", correct: false },
+            { id: 4, label: "0", correct: false }
+        ]
+    },
+    {
+        question: "How to convert string to array in JavaScript?",
+        correctCode: "str.split('')",
+        explanation: "Use split method to convert string into array."
+    },
+    {
+        question: "Which event occurs when the user presses a key?",
+        answers: [
+            { id: 1, label: "onkeydown", correct: true },
+            { id: 2, label: "onkeypress", correct: false },
+            { id: 3, label: "onkeyup", correct: false },
+            { id: 4, label: "onclick", correct: false }
+        ]
+    },
+    {
+        question: "Loop an array and sum it in JavaScript?",
+        correctCode: `let arr = [1,2,3,5,5,6,77,];
+                        var sum = 0;
+                        arr.forEach(function(element){
+	                    sum = sum + element;
+                        }
+                    console.log(sum);`,
+        explanation: "Use forEach to iterate through each item in the array."
+    },
+    {
+        question: "What will the following code return? Boolean(0)",
+        answers: [
+            { id: 1, label: "true", correct: false },
+            { id: 2, label: "false", correct: true },
+            { id: 3, label: "undefined", correct: false },
+            { id: 4, label: "NaN", correct: false }
+        ]
+    },
+
 ];
+
 
 let quizFormElem = document.getElementById('quiz-form');
 let quizContainerElem = document.getElementById('quiz-container');
@@ -118,111 +211,165 @@ let seconds = 0;
 let minutes = 0;
 let timerInterval;
 
+// EscapeHtml
+function escapeHtml(text) {
+    return text.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 // On start button data renders
-quizStartBtn.addEventListener('click', function() {
-quizFormElem.classList.remove('hide');
-quizStartBtn.classList.add('hide');
-showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
-timer()
+quizStartBtn.addEventListener('click', function () {
+    quizFormElem.classList.remove('hide');
+    quizStartBtn.classList.add('hide');
+    showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+    timer()
 });
 
 // Questions renders
 function showQuestions(data, index) {
-const output = `<h3 class="quiz__question"><span class="quiz__number"> ${index + 1}. </span> ${data.question} </h3>
-<div class="quiz__answers"> ${showOptions(data.answers)}</div>`;
+    const output = `
+        <h3 class="quiz__question">
+            <span class="quiz__number">${index + 1}. </span> 
+            ${data.question}
+        </h3>
+        <div class="quiz__answers"> ${showAnswers(data)}</div>
+    `;
 
-quizContainerElem.innerHTML = output;
+    quizContainerElem.innerHTML = output;
 }
+
 
 // Option renders
-function showOptions(answers) {
-let output = "";
+function showAnswers(data) {
+    let output = "";
+    if (data.answers) {
+        data.answers.forEach(answer => {
+            output += `
+                <div class="quiz__answer">
+                    <input type="radio" name="answer" id="${answer.id}" data-correct='${answer.correct}' required>
+                    <label for="${answer.id}">${escapeHtml(answer.label)}</label>
+                </div>
+            `;
+        });
+    }
+    else if (data.explanation) {
+        output += `
+            <div class="quiz__code-input">
+                <label for="userCode">Write your code here:</label>
+                <textarea id="userCode" rows="5" placeholder="Enter your code..."></textarea>
+            </div>
+        `;
+    }
 
-answers.forEach(answer => {
-    output += `<div class="quiz__answer">
-        <input type="radio" name="answer" id="${answer.id}" data-correct='${answer.correct}' required>
-        <label for="${answer.id}">${answer.label}</label>
-    </div>`;
-});
-
-return output;
+    return output;
 }
+
 
 // On next button click
 nextButton.addEventListener('click', (event) => {
-event.preventDefault();
+    event.preventDefault();
 
-const selectedOption = document.querySelector('input[name="answer"]:checked');
-
-if (selectedOption) {
-    userAnswers.push(selectedOption.getAttribute('data-correct') === 'true');
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-        showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+    const currentQuestion = quizData[currentQuestionIndex];
+    if (currentQuestion.explanation) {
+        const userCode = document.querySelector('#userCode').value.trim(); 
+        
+        if (!userCode) {
+            const isSure = confirm("You haven't entered any code. Are you sure you want to proceed?");
+            if (isSure) {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+                } else {
+                    checkAnswers();
+                    displayResult();
+                }
+            }
+        } else {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+            } else {
+                checkAnswers();
+                displayResult();
+            }
+        }
     } else {
-        checkAnswers();
-        displayResult();
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        
+        if (selectedOption) {
+            userAnswers.push(selectedOption.getAttribute('data-correct') === 'true');
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+            } else {
+                checkAnswers();
+                displayResult();
+            }
+        } else {
+            alert("Please select at least one answer.");
+        }
     }
-} else {
-    alert("Please select at least one answer.");
-}
 });
 
 // Check correct answers
 function checkAnswers() {
-userAnswers.forEach((isCorrect) => {
-    if (isCorrect) {
-        score++;
-    }
-});
+    userAnswers.forEach((isCorrect) => {
+        if (isCorrect) {
+            score++;
+        }
+    });
 }
+
+
 
 // Display results
 function displayResult() {
-quizContainerElem.innerHTML = `<h3 style = "text-align : center">Quiz Completed! 🎉 <br> <br> Your score is ${score} out of ${quizData.length}.</h3>`;
-nextButton.classList.add('hide');
+    quizContainerElem.innerHTML = `<h3 style = "text-align : center">Quiz Completed! 🎉 <br> <br> Your score is ${score} out of ${quizData.length}.</h3>`;
+    nextButton.classList.add('hide');
 
-clearInterval(timerInterval);
+    clearInterval(timerInterval);
 }
 
 // On restart button
 function reset() {
-currentQuestionIndex = 0;
-userAnswers = [];
-score = 0;
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    score = 0;
 
-showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
+    showQuestions(quizData[currentQuestionIndex], currentQuestionIndex);
 
-quizStartBtn.classList.remove('hide');
-quizFormElem.classList.add('hide');
+    quizStartBtn.classList.remove('hide');
+    quizFormElem.classList.add('hide');
 
-nextButton.classList.remove('hide');
+    nextButton.classList.remove('hide');
 
-seconds = 0;
-minutes = 0;
-document.getElementById('quiz-timer').innerHTML = '00:00';
-timer();
+    seconds = 0;
+    minutes = 0;
+    document.getElementById('quiz-timer').innerHTML = '00:00';
+    timer();
 }
 
 quizRestartBtn.addEventListener('click', () => {
-reset();
+    reset();
 
 })
 
 // Timer function
 function timer() {
-const quizTimerElem = document.getElementById('quiz-timer');
+    const quizTimerElem = document.getElementById('quiz-timer');
 
-timerInterval = setInterval(() => {
-    if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-    }
+    timerInterval = setInterval(() => {
+        if (seconds === 60) {
+            seconds = 0;
+            minutes++;
+        }
 
-    quizTimerElem.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    seconds++;
+        quizTimerElem.innerHTML = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        seconds++;
 
 
-}, 1000);
+    }, 1000);
 }
