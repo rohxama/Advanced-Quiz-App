@@ -11,8 +11,9 @@ const quizData = [
     },
     {
         question: "How to create a new array in JavaScript?",
-        correctCode: "let myArray = [];", // Correct answer
-        explanation: "Use brackets to define an array."
+        correctCode: "/(var|let|const)\\s+\\w+\\s*=\\s*\\[\\s*\\];/",
+        additionalCode: "// Create new array with let keyword",
+        explanation: ""
     },
     {
         question: "What is the correct HTML element for inserting a line break?",
@@ -34,9 +35,10 @@ const quizData = [
     },
     {
         question: "Convert a string to uppercase in JavaScript. Write your code below:",
-        correctCode: "myString.toUpperCase();",
-        explanation: "Use the toUpperCase method to convert a string to uppercase."
-    },
+        correctCode: "JAVASCRIPT",
+        additionalCode: 'let str = "JavaScript";',
+        explanation: ""
+    },    
     {
         question: "Which HTML tag is used to define an external stylesheet?",
         answers: [
@@ -66,9 +68,10 @@ const quizData = [
         ]
     },
     {
-        question: "How to reverse an array in JavaScript without using reverse method?",
-        correctCode: "myArray.reverse();",
-        explanation: "Use the reverse method to reverse the order of elements in an array."
+        question: "How to reverse an array in JavaScript?",
+        correctCode: "[5, 4, 1]",
+        additionalCode: "let arr = [1, 4, 5];",
+        explanation: ""
     },
     {
         question: "Which CSS property is used to change the font family of an element?",
@@ -108,10 +111,11 @@ const quizData = [
         ]
     },
     {
-        question: "How to check if a variable is an array? Write your code below:",
-        correctCode: "Array.isArray(myVariable);",
-        explanation: "Use Array.isArray() to check if a variable is an array."
-    },
+        question: "How to check if a variable is an array?",
+        correctCode: "true",
+        additionalCode: "let arr = [2, 3, 4, 5];",
+        explanation: ""
+    },    
     {
         question: "NAN == NAN",
         answers: [
@@ -132,8 +136,15 @@ const quizData = [
     },
     {
         question: "How to iterate through an array in JavaScript?",
-        correctCode: "myArray.forEach(item => console.log(item));",
-        explanation: "Use forEach to iterate through each item in the array."
+        correctCode: [
+            /for\s*\(\s*let\s+\w+\s*=\s*0;\s*\w+\s*<\s*\w+\.length;\s*\w+\+\+\)\s*{/,
+            /\w+\.forEach\(\w+=>/,
+            /for\s+\w+\s+of\s+\w+/,
+            /for\s+\w+\s+in\s+\w+/,
+            /\w+\.map\(\w+=>/
+        ],
+        additionalCode: "// Use any method for array",
+        explanation: ""
     },
     {
         question: "Which method is used to add an element to the end of an array in JavaScript?",
@@ -163,10 +174,11 @@ const quizData = [
         ]
     },
     {
-        question: "How to convert string to array in JavaScript?",
-        correctCode: "str.split('')",
-        explanation: "Use split method to convert string into array."
-    },
+        question: "How to convert a string to array in JavaScript?",
+        correctCode: "['H', 'e', 'l', 'l', 'o']",
+        additionalCode: "let str = 'Hello';",
+        explanation: ""
+    },    
     {
         question: "Which event occurs when the user presses a key?",
         answers: [
@@ -178,13 +190,9 @@ const quizData = [
     },
     {
         question: "Loop an array and sum it in JavaScript?",
-        correctCode: `let arr = [1,2,3,5,5,6,77,];
-                        var sum = 0;
-                        arr.forEach(function(element){
-	                    sum = sum + element;
-                        }
-                    console.log(sum);`,
-        explanation: "Use forEach to iterate through each item in the array."
+        correctCode: "20",
+        additionalCode: "let arr = [2, 3, 4, 5, 6];",
+        explanation: ""
     },
     {
         question: "What will the following code return? Boolean(0)",
