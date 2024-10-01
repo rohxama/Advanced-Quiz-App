@@ -115,6 +115,7 @@
             text-decoration: underline;
         }
     </style>
+
 </head>
 
 <body>
@@ -125,7 +126,7 @@
             <form action="login.php" method="POST">
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <button type="submit" class = "btn">Login</button>
+                <button type="submit" class="btn">Login</button>
             </form>
             <p>Don't have an account?
                 <a href="./signup.php">Sign Up</a>
@@ -136,57 +137,56 @@
 
 
     <?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    session_start();
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "quiz-test";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "quiz-test";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Check if the user exists
-    $sql = "SELECT * FROM user_data WHERE user_email = ?";
-    $stmt = $conn->prepare($sql);
-
-    if (!$stmt) {
-        die("Error preparing statement: " . $conn->error);
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
 
-        // Verify the password
-        if (password_verify($password, $row['user_password'])) {
-            $_SESSION['user_email'] = $email;
-            header("Location: quiz.php");
-            exit();
-        } else {
-            echo "Incorrect password!";
+        $sql = "SELECT * FROM user_data WHERE user_email = ?";
+        $stmt = $conn->prepare($sql);
+
+        if (!$stmt) {
+            die("Error preparing statement: " . $conn->error);
         }
-    } else {
-        echo "No account found with that email!";
-    }
-    $stmt->close();
-}
-$conn->close();
-?>
 
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+
+            if (password_verify($password, $row['user_password'])) {
+                $_SESSION['user_email'] = $email;
+                header("Location: quiz.php");
+                exit();
+            } else {
+                echo "Incorrect password!";
+            }
+        } else {
+            echo "No account found with that email!";
+        }
+        $stmt->close();
+    }
+    $conn->close();
+    ?>
 
 </body>
 

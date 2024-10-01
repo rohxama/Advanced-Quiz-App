@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App-Home</title>
-        <!-- Remix Icons -->
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- Font Family -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
     <!-- Css File -->
     <link rel="stylesheet" href="./assets/style/style.css">
+
+
     <style>
           .home-section p{
     color: var(--clr-neutral-100);
@@ -25,21 +27,22 @@
     font-weight: 500;
   }
     </style>
+
 </head>
 
 <body class="home-body">
 
-    <div class="nav-parent">
+    <section class="nav-parent">
         <div class="nav-wrapper">
                 <a href="index.html" class="logo">
                     <i class="ri-question-answer-line text-neutral-100"></i>
                     <h2 class="logo text-neutral-100">MCQZONE</h2>
                 </a>
         </div>
-    </div>
+    </section>
 
    
-    <div class="home-section">
+    <section class="home-section">
         <h1>
             Get ready to fight
         </h1>
@@ -49,7 +52,8 @@
              <a href="signup.php"> Sign Up to Start
                 <i class="ri-arrow-right-line"></i>
              </a></div>
-    </div>
+    </section>
+
 
     <script>
         const burgerLinks = document.querySelector('.burger-links');

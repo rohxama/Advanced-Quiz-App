@@ -247,11 +247,7 @@ select {
    .hero-btn:hover a {
     opacity: 0.7;
    }
-  
-  
-  
-
-        
+         
    .btn {
        display: inline-flex;
        align-items: center;
@@ -350,11 +346,6 @@ select {
    button:hover::after {
        transform: translate(50%, 0) scale(1.1);
    }
-   
-   
-   /*------------------------------------*\
-     #QUIZ
-   \*------------------------------------*/
    
    .quiz {
        display: grid;

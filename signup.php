@@ -141,19 +141,16 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "quiz_dashboard";
+    $dbname = "quiz-test";
 
-    // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // Get form data
         $user_name = $_POST['fullname'];
         $user_email = $_POST['email']; 
         $user_password = $_POST['password']; 
@@ -161,7 +158,6 @@
 
 
 
-        // check password and confirm_password match
         if ($user_password == $confirm_password) {
 
 
@@ -177,25 +173,22 @@
 
             $stmt->bind_param("sss", $user_name, $user_email, $hashed_password);
 
-            // Execute the query
             if ($stmt->execute()) {
                 echo "Sign up successful!";
+                header("Location: login.php");
+                exit();
             } else {
                 echo "Error: " . $stmt->error;
             }
 
-            // Close the statement
             $stmt->close();
         } else {
             echo "Passwords do not match!";
         }
     }
 
-    // Close the connection
     $conn->close();
     ?>
-
-
 
 
 </body>
