@@ -173,7 +173,7 @@ function checkCodeAnswer(question, userCode) {
 function displayResult() {
     quizContainerElem.innerHTML = `
     <h3 style="text-align: center">Quiz Completed! 🎉 <br><br>Your score is ${score} out of ${quizData.length}.</h3>
-    <a href="view-details.php" style="display: block; text-align: center; margin-top: 20px; font-size: 18px; text-decoration: none; color: blue;">
+    <a href="view-details.php" style="display: block; text-align: center; margin-top: 20px; font-size: 18px; text-decoration: none; color: #E6EAEF;">
         View Details
     </a>
 `;

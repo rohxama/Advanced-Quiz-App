@@ -116,7 +116,7 @@ export const quizData = [
     {
         question: "How to center an element horizontally in CSS?",
         correctCode: /margin:\s*0\s*auto;/,
-        additionalCode: "Set the width of the element.",
+        additionalCode: "Center the element named as '.centered'.",
         explanation: "..."
     },
     {
@@ -193,7 +193,7 @@ export const quizData = [
     {
         question: "How do you check if a variable is an array in JavaScript?",
         correctCode: /Array\.isArray\(\w+\)/,
-        additionalCode: "Use your variable",
+        additionalCode: "Use any variable name",
         explanation: "..."
     },
     {

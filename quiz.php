@@ -167,7 +167,7 @@
             justify-items: center;
         }
 
-        .quiz-body {
+        /* .quiz-body {
             display: grid;
             place-items: center;
             min-height: 100vh;
@@ -176,7 +176,17 @@
             font-family: system-ui, sans-serif;
             line-height: 1.5;
 
-        }
+        } */
+        .quiz-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--clr-neutral-500);
+    color: var(--clr-neutral-100);
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+}
 
         .quiz__code-input {
             display: flex;

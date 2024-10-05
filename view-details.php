@@ -13,7 +13,7 @@
             text-align: center;
             border-right: 1px solid var(--clr-neutral-200);
         }
-        body{
+        .view-de{
             margin: 50px 0px 0px ;
         }
         h1{
@@ -30,7 +30,7 @@
     </style>
 </head>
 
-<body>
+<body class = "view-de">
 
     <h1>Quiz Answers</h1>
 
