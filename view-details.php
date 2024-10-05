@@ -33,6 +33,7 @@
 <body>
 
     <h1>Quiz Answers</h1>
+
     <table id="quizTable">
         <thead>
             <tr>

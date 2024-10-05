@@ -226,7 +226,11 @@
 
     </form>
 
-
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
     <script type="module" src="quiz.js"></script>
 
 </body>
