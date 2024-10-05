@@ -122,11 +122,6 @@
             transform: translate(50%, 0) scale(1.1);
         }
 
-
-        /*------------------------------------*\
-  #QUIZ
-\*------------------------------------*/
-
         .quiz {
             display: grid;
             gap: 30px;
@@ -232,7 +227,7 @@
     </form>
 
 
-    <script src="./assets/script/quiz.js"></script>
+    <script type="module" src="quiz.js"></script>
 
 </body>
 

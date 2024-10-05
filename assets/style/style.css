@@ -402,6 +402,50 @@ select {
            line-height: 1.5;
        
    }
+
+   #quiz-details {
+    margin: 20px;
+}
+
+.table-container {
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--clr-neutral-300);
+    color: var(--clr-neutral-100);
+}
+
+th,
+td {
+    padding: 20px;
+    text-align: center; 
+    border-right: 1px solid var(--clr-neutral-200); 
+}
+
+th:last-child,
+td:last-child {
+    border-right: none; 
+}
+
+th {
+    background-color: var(--clr-neutral-500);
+    color: var(--clr-neutral-100);
+    border-bottom: 2px solid var(--clr-neutral-200);
+}
+
+td {
+    border-bottom: 2px solid var(--clr-neutral-200);
+    background-color: var(--clr-neutral-500);
+}
+
+tr:nth-child(even) {
+    background-color: var(--clr-neutral-100);
+
+}
+
    
    @media (min-width: 30em) {
        .quiz__info {
